@@ -1,6 +1,22 @@
 # Privacy X-Ray
 
-An interactive privacy engineering lab that makes tracking, consent, profiling, and advertising inspectable in the browser — without real trackers, cookies, or third-party SDKs.
+> Interactive Privacy Engineering Lab demonstrating how modern websites capture events, evaluate consent, build behavioral profiles, and personalize user experiences.
+
+🌐 **Live Demo:** https://privacy-xray.vercel.app
+
+> Educational simulation only — not a production CMP or legal/compliance implementation.
+
+---
+
+## Features
+
+- ✅ Interactive privacy simulation
+- ✅ Region-aware privacy simulation (EU / US / Rest of World).
+- ✅ User View & Privacy Engineer View
+- ✅ Live consent processing pipeline
+- ✅ Behavioral profile visualization (Digital Twin)
+- ✅ Simulated network, storage & vendor activity
+- ✅ Privacy-first architecture with no real tracking
 
 ## What is Privacy X-Ray?
 
@@ -96,7 +112,6 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-If you cloned the parent `privacy-Xray` folder, run these commands from the `privacy-xray/` app directory.
 
 ## Validation
 
@@ -109,7 +124,7 @@ No environment variables are required.
 
 ## Demo scenarios
 
-**Technology profiling.** Stay in Rest of World with Analytics and Advertising on. Open Technology. The Digital Twin shifts toward Devices and the ad creative becomes a technology placement.
+**Technology profiling.** Stay in Rest of World with Analytics and Advertising on. Open Technology. The Digital Twin shifts toward Technology and the ad creative becomes a technology placement.
 
 **Analytics blocked.** Turn Analytics off and open Travel. The event is still observed. The pipeline stops at consent. The profile does not change.
 
@@ -123,25 +138,37 @@ No environment variables are required.
 
 ## Project screenshots
 
-Capture these four views when preparing the public repo. Place files in `docs/screenshots/` and then update the paths below.
+### Hero Experience
 
-**User View** — Digital Twin, ad experience, and privacy choices.
+The landing page introduces the privacy simulation and explains how a simple user interaction becomes an event, profile, and personalized advertisement.
 
-*Add `docs/screenshots/user-view.png` after capture.*
+![Hero Experience](docs/screenshots/hero.png)
 
-**Engineer View** — event console, pipeline, payload, and policy.
+---
 
-*Add `docs/screenshots/engineer-view.png` after capture.*
+### User View
 
-**Blocked Analytics scenario** — observed event with analytics processing blocked.
+See how user interactions build an inferred interest profile, influence personalization, and change the simulated advertisement based on consent.
 
-*Add `docs/screenshots/blocked-analytics.png` after capture.*
+![User View](docs/screenshots/user-view.png)
 
-**Privacy violation scenario** — simulated SENT request flagged by the detector.
+---
 
-*Add `docs/screenshots/privacy-violation.png` after capture.*
+### Privacy Engineer View
 
-See `docs/screenshots/README.md` for capture notes.
+Inspect the complete processing pipeline including captured events, consent evaluation, payloads, storage, simulated network requests, and policy decisions.
+
+![Engineer View](docs/screenshots/engineer-view.png)
+
+---
+
+### Architecture & Privacy by Design
+
+A high-level overview of the event lifecycle together with the design principles used throughout the demo.
+
+![Architecture](docs/screenshots/architecture.png)
+
+---
 
 ## Future ideas
 

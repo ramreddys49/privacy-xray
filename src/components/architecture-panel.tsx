@@ -20,7 +20,7 @@ export function ArchitecturePanel() {
   return (
     <section className="mx-auto w-full max-w-[1500px] px-5 py-6 sm:px-8">
       <h2 className="text-xl font-semibold tracking-tight text-slate-50">
-        How Privacy X-Ray Works
+        Privacy Processing Architecture
       </h2>
       <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-400">
         Observation and processing are intentionally separated.
