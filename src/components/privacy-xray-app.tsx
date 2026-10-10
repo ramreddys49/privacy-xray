@@ -18,6 +18,7 @@ import { PrinciplesPanel } from "@/components/principles-panel";
 import { PrivacyContextPanel } from "@/components/privacy-context";
 import { ProcessingPipeline } from "@/components/processing-pipeline";
 import { ProductExplorer } from "@/components/product-explorer";
+import { RealWorldMapping } from "@/components/real-world-mapping";
 import { SiteFooter } from "@/components/site-footer";
 import { StoryTimeline } from "@/components/story-timeline";
 import { PRODUCT_CATEGORIES } from "@/data/catalog";
@@ -567,6 +568,7 @@ export function PrivacyXrayApp() {
         </div>
         <ArchitecturePanel />
         <PrinciplesPanel />
+        <RealWorldMapping />
         <AboutPanel />
         <SiteFooter />
       </div>
