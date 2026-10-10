@@ -1,0 +1,278 @@
+@import "tailwindcss";
+
+:root {
+  --background: #05070d;
+  --foreground: #e8eef7;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+:focus-visible {
+  outline: 2px solid #7ee7ff;
+  outline-offset: 2px;
+}
+
+@keyframes event-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.event-enter {
+  animation: event-enter 280ms ease-out;
+}
+
+@keyframes pipeline-dot-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.55;
+    transform: scale(1.35);
+  }
+}
+
+@keyframes pipeline-flow {
+  from {
+    top: -4px;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  to {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+.pipeline-dot-active {
+  animation: pipeline-dot-pulse 700ms ease-in-out infinite;
+}
+
+.pipeline-connector {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 18px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.pipeline-connector::before {
+  content: "";
+  height: 100%;
+  width: 2px;
+  background: rgb(56 214 255 / 0.28);
+}
+
+.pipeline-flow-dot {
+  position: absolute;
+  left: 50%;
+  top: -4px;
+  height: 6px;
+  width: 6px;
+  margin-left: -3px;
+  border-radius: 999px;
+  background: #7ee7ff;
+  opacity: 0;
+}
+
+.pipeline-connector-live .pipeline-flow-dot {
+  animation: pipeline-flow 900ms linear infinite;
+}
+
+.pipeline-connector-blocked::before {
+  background: rgb(248 113 113 / 0.7);
+}
+
+.pipeline-connector-skipped::before {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgb(71 85 105 / 0.7) 0 2px,
+    transparent 2px 4px
+  );
+  background-color: transparent;
+}
+
+@media (min-width: 1024px) {
+  .pipeline-connector {
+    width: 16px;
+    height: auto;
+    min-height: 100%;
+  }
+
+  .pipeline-connector::before {
+    height: 2px;
+    width: 100%;
+  }
+
+  .pipeline-flow-dot {
+    left: -4px;
+    top: 50%;
+    margin-left: 0;
+    margin-top: -3px;
+  }
+
+  .pipeline-connector-live .pipeline-flow-dot {
+    animation: pipeline-flow-x 900ms linear infinite;
+  }
+
+  .pipeline-connector-skipped::before {
+    background-image: repeating-linear-gradient(
+      to right,
+      rgb(71 85 105 / 0.7) 0 2px,
+      transparent 2px 4px
+    );
+  }
+}
+
+@keyframes pipeline-flow-x {
+  from {
+    left: -4px;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  to {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+.ad-swap {
+  animation: event-enter 320ms ease-out;
+}
+
+.story-rail {
+  min-height: 12px;
+}
+
+.hero-story-preview .hero-story-step {
+  animation: hero-story-focus 4.5s ease-in-out infinite;
+}
+
+.hero-story-preview .hero-story-step:nth-child(1) { animation-delay: 0s; }
+.hero-story-preview .hero-story-step:nth-child(2) { animation-delay: 0.9s; }
+.hero-story-preview .hero-story-step:nth-child(3) { animation-delay: 1.8s; }
+.hero-story-preview .hero-story-step:nth-child(4) { animation-delay: 2.7s; }
+.hero-story-preview .hero-story-step:nth-child(5) { animation-delay: 3.6s; }
+
+.hero-story-live .hero-story-step {
+  opacity: 1;
+}
+
+.hero-story-live .hero-story-step:last-child .hero-story-dot {
+  background: #7ee7ff;
+  box-shadow: 0 0 12px rgba(56, 214, 255, 0.8);
+}
+
+@keyframes hero-story-focus {
+  0%,
+  14% {
+    opacity: 1;
+  }
+  18%,
+  100% {
+    opacity: 0.42;
+  }
+}
+
+.hero-story-preview .hero-story-step:nth-child(1) .hero-story-dot,
+.hero-story-preview .hero-story-step:nth-child(2) .hero-story-dot,
+.hero-story-preview .hero-story-step:nth-child(3) .hero-story-dot,
+.hero-story-preview .hero-story-step:nth-child(4) .hero-story-dot,
+.hero-story-preview .hero-story-step:nth-child(5) .hero-story-dot {
+  animation: hero-story-dot 4.5s ease-in-out infinite;
+}
+
+.hero-story-preview .hero-story-step:nth-child(1) .hero-story-dot { animation-delay: 0s; }
+.hero-story-preview .hero-story-step:nth-child(2) .hero-story-dot { animation-delay: 0.9s; }
+.hero-story-preview .hero-story-step:nth-child(3) .hero-story-dot { animation-delay: 1.8s; }
+.hero-story-preview .hero-story-step:nth-child(4) .hero-story-dot { animation-delay: 2.7s; }
+.hero-story-preview .hero-story-step:nth-child(5) .hero-story-dot { animation-delay: 3.6s; }
+
+@keyframes hero-story-dot {
+  0%,
+  14% {
+    background: #7ee7ff;
+    box-shadow: 0 0 12px rgba(56, 214, 255, 0.8);
+  }
+  18%,
+  100% {
+    background: rgb(255 255 255 / 0.2);
+    box-shadow: none;
+  }
+}
+
+@keyframes story-step-enter {
+  from {
+    opacity: 0.35;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.story-step-enter {
+  animation: story-step-enter 280ms ease-out;
+}
+
+.story-connector {
+  background: linear-gradient(to bottom, rgb(56 214 255 / 0.15), rgb(56 214 255 / 0.7));
+}
+
+@media (min-width: 1024px) {
+  .story-connector {
+    background: linear-gradient(to right, rgb(56 214 255 / 0.15), rgb(56 214 255 / 0.7));
+    height: 2px;
+    width: 12px;
+  }
+}
+
+.delta-fade {
+  animation: event-enter 280ms ease-out;
+}
+
+.pipeline-stopped {
+  box-shadow: 0 0 0 1px rgb(248 113 113 / 0.45);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .event-enter,
+  .pipeline-dot-active,
+  .pipeline-flow-dot,
+  .animate-ping,
+  .story-step-enter,
+  .delta-fade,
+  .ad-swap,
+  .hero-story-preview .hero-story-step,
+  .hero-story-preview .hero-story-dot {
+    animation: none;
+  }
+
+  .hero-story-preview .hero-story-step {
+    opacity: 1;
+  }
+}
